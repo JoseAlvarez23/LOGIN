@@ -43,5 +43,39 @@ namespace Login
             return esUsuarioValido;
         }
 
+
+        public bool InsertarProducto(Producto producto)
+        {
+            try
+            {
+                StringBuilder sql = new StringBuilder();
+                sql.Append(" INSERT INTO PRODUCTO ");
+                sql.Append(" VALUES (@Codigo, @Descripcion, @Precio, @Existencia); ");
+
+                using (SqlConnection _conexion = new SqlConnection(cadena))
+                {
+                    _conexion.Open();
+                    using (SqlCommand comando = new SqlCommand(sql.ToString(), _conexion))
+                    {
+                        comando.CommandType = CommandType.Text;
+                        comando.Parameters.Add("@Codigo", SqlDbType.NVarChar, 50).Value = producto.Codigo;
+                        comando.Parameters.Add("@Descripcion", SqlDbType.NVarChar, 80).Value = producto.Descripcion;
+                        comando.Parameters.Add("@Precio", SqlDbType.Decimal).Value = producto.Precio;
+                        comando.Parameters.Add("@Existencia", SqlDbType.Int).Value = producto.Existencia;
+                        comando.ExecuteNonQuery();
+                        return true;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+
+            }
+
+        }
+
+
     }
 }

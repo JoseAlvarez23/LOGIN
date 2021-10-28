@@ -1,7 +1,7 @@
 ﻿
 namespace Login
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,22 +29,26 @@ namespace Login
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.btn_conectar = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // btn_conectar
             // 
-            this.button1.Location = new System.Drawing.Point(329, 236);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 53);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "CONECTAR";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_conectar.Location = new System.Drawing.Point(213, 215);
+            this.btn_conectar.Name = "btn_conectar";
+            this.btn_conectar.Size = new System.Drawing.Size(109, 53);
+            this.btn_conectar.TabIndex = 0;
+            this.btn_conectar.Text = "CONECTAR";
+            this.btn_conectar.UseVisualStyleBackColor = true;
+            this.btn_conectar.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -57,6 +61,7 @@ namespace Login
             // 
             this.textBox2.Location = new System.Drawing.Point(329, 171);
             this.textBox2.Name = "textBox2";
+            this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 2;
             // 
@@ -78,18 +83,34 @@ namespace Login
             this.label2.TabIndex = 4;
             this.label2.Text = "USUARIO:";
             // 
-            // Form1
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Location = new System.Drawing.Point(418, 215);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(109, 53);
+            this.btn_cancelar.TabIndex = 5;
+            this.btn_cancelar.Text = "CANCELAR";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Controls.Add(this.btn_conectar);
+            this.Name = "LoginForm";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -97,11 +118,13 @@ namespace Login
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_conectar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
